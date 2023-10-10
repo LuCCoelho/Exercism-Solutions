@@ -6,4 +6,4 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: dart-lang/setup-dart@v1
-      - run: run_tests_dart.sh
+      - run: bash run_tests_dart.sh
