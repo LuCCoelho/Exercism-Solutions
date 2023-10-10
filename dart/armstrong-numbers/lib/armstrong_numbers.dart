@@ -1,7 +1,7 @@
 import 'dart:math';
 
 class ArmstrongNumbers {
-  bool isArmstrongNumber(number) {
+  bool isArmstrongNumber(String number) {
     switch (number.length) {
       case 1:
         return true;
@@ -9,7 +9,7 @@ class ArmstrongNumbers {
         return false;
       default:
         num sum = 0;
-        number.runes.forEach((c) {
+        number.runes.forEach((var c) {
           String digit = new String.fromCharCode(c);
           num power = pow(num.parse(digit), number.length);
           print('Digit: $digit\nSum: $sum\nPower: $power');
