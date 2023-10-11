@@ -1,5 +1,3 @@
-import 'dart:math';
-
 class ArmstrongNumbers {
   bool isArmstrongNumber(String number) {
     switch (number.length) {
@@ -8,15 +6,21 @@ class ArmstrongNumbers {
       case 2:
         return false;
       default:
-        num sum = 0;
-        number.runes.forEach((var c) {
-          String digit = new String.fromCharCode(c);
-          num power = pow(num.parse(digit), number.length);
-          print('Digit: $digit\nSum: $sum\nPower: $power');
-          sum += pow(num.parse(digit), number.length);
-          print('Sum: $sum');
+        BigInt sum = BigInt.from(0);
+        print("Number $number");
+        number.runes.forEach((var digitChar) {
+          int length = number.length;
+          var digit =
+              BigInt.from(int.parse(new String.fromCharCode(digitChar)));
+          // print("Digit: $digit, length: $length");
+
+          print("Digit: $digit, length: $length, power: ${digit.pow(length)}");
+          // int eight = pow(8, 22).truncate();
+          // print('Eight: $eight\n\nSum: $sum\nDigit: $digit\nLength: $length\nPower: $power');
+          sum += digit.pow(length);
+          print('Sum: $sum\n');
         });
-        return sum == num.parse(number);
+        return sum.toString() == number;
     }
   }
 }
